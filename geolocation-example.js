@@ -96,7 +96,7 @@ function initialSuccess(pos) {
 // Used by watchPosition as the success callback function
 function success(pos) {
 
-    if (pos.coords.latitude === userLocation.latitude && pos.coords.longitude === userLocation.longitude) {
+    if (pos.coords.latitude !== userLocation.latitude && pos.coords.longitude !== userLocation.longitude) {
 
        // Set the updated user position
         userLocation.latitude = pos.coords.latitude;
