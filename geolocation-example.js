@@ -94,9 +94,14 @@ function initialSuccess(pos) {
 }
 
 // Used by watchPosition as the success callback function
-function success(pos) {
+const success = (pos) => {
+
+
+    console.log('wow');
 
     if (pos.coords.latitude !== userLocation.latitude && pos.coords.longitude !== userLocation.longitude) {
+
+        console.log('wow');
 
        // Set the updated user position
         userLocation.latitude = pos.coords.latitude;
@@ -121,7 +126,7 @@ function success(pos) {
     }
 
     // Determine if you reached the target location are within X metres!
-    let within = 0.0005;
+    let within = 0.00025;
     if (targetLocation.latitude >= userLocation.latitude - within && targetLocation.latitude <= userLocation.latitude + within && targetLocation.longitude >= userLocation.longitude - within && targetLocation.longitude <= userLocation.longitude + within) {
 
         // Use the saved id of the watchPosition() call in the clearWatch() function to stop watching the user's location.
