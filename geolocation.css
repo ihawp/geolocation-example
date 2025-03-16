@@ -112,7 +112,7 @@ body, body a {
 body a {
   text-decoration: none;
 }
-body a:hover {
+body footer a:hover {
   text-decoration: underline;
 }
 body h1 {
@@ -134,7 +134,7 @@ body h3 {
   margin-bottom: 1rem;
   font-weight: 700;
 }
-body p {
+body p, body a {
   font-weight: 300;
   opacity: 0.8;
 }

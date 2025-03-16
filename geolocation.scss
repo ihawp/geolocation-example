@@ -41,11 +41,13 @@ body {
   }
   a {
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
+  footer {
+    a:hover {
+        text-decoration: underline;
+    }
+  }
   h1, h2, h3, h4, h5, h6 {}
   h1 {
     line-height: 28px;
@@ -69,7 +71,7 @@ body {
   h4 {}
   h5 {}
   h6 {}
-  p {
+  p, a {
     font-weight: 300;
     opacity: .8;
   }
