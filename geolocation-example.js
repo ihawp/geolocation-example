@@ -1,44 +1,20 @@
+// ihawp.com
+
+// Define some variables
+// DOM
 const alert = document.getElementById('alert');
+// Data
 let userLocation = {};
 let targetLocation = {};
+// Tracking
+// marker to be replaced,
+// polyline to be replaced,
+// id of watchPosition() for clearWatch()
 let marker = undefined;
-
-// Hold the id of the watchPosition call so that it can be used to clear
-// the watch later, using clearWatch().
+let polyline = undefined;
 let id = undefined;
 
-/*
-
-    Options:
-
-        The API intakes these options to determine the constraints it should follow when
-        determining the user location.
-
-        enableHighAccuracy:
-
-            When set to true your device will consume more power and provide a slower response
-            time, but this will only happen if your device knows it can find a more accurate
-            location. Meaning that your device will not try to find a better or more accurate
-            position if it knows that it is not able to find an accurate position, making the
-            setting of true rather false. Reasons of cases like this include a lack of GPS
-            satellites/cell towers/Wi-Fi signals, weak GPS signal, battery saving mode.
-
-        maximumAge:
-
-            The maximum age of a cached location allowed is the value set to maximumAge.
-            If unset (default: 0) the app will always require a new location.
-            If set to Infinity then the device must find a cached location.
-
-        timeout:
-
-            Maximum length of time that the device is allowed to take to return a position.
-            Will cause function to return an error if it does not succeed in finding your
-            location in a specified amount of time. For example, if your timeout option was
-            set to 5000 (ms) and your device cannot return a location within that time there
-            will be an error. When set to Infinity it will wait until a position is found
-            before returning.
-
-*/
+// Options for Geolocation API
 const options = {
     maximumAge: 0,
     timeout: Infinity,
@@ -59,10 +35,7 @@ function addMarker(lat, lon, label) {
     return L.marker([lat, lon]).addTo(map).bindPopup(label).openPopup();
 }
 
-
-let polyline = undefined;
-
-// Used by getCurrentPosition as the success callback function
+// Used by getCurrentPosition() as the success callback function
 function initialSuccess(pos) {
 
     // Store user location
@@ -93,12 +66,8 @@ function initialSuccess(pos) {
 
 }
 
-// Used by watchPosition as the success callback function
+// Used by watchPosition() as the success callback function
 const success = (pos) => {
-
-
-    console.log('wow');
-
     if (pos.coords.latitude !== userLocation.latitude && pos.coords.longitude !== userLocation.longitude) {
 
         console.log('wow');
@@ -139,8 +108,10 @@ const success = (pos) => {
     }
 }
 
+// Used as error callback for getCurrentPosition() and watchPosition()
 function error(error) {
     console.error(`(${error.code}): ${error.message}`); // ERROR
 }
 
+// Start Script
 navigator.geolocation.getCurrentPosition(initialSuccess, error, options);
