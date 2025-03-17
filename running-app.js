@@ -79,7 +79,7 @@ function success(pos) {
         const d = R * c
 
         distanceCount += d;
-        distance.innerText = `Distance Traveled: ${distanceCount} meters`;
+        distance.innerText = `Distance Traveled: ${distanceCount.toFixed(2)} meters`;
 
         // Set the updated user position
         route.push([pos.coords.latitude, pos.coords.longitude]);
