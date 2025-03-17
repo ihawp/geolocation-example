@@ -38,7 +38,7 @@
     </header>
     <main>
       <section class="flex row wrap magical-borders-container gap-1">
-        <div class="magical-borders content-card">
+        <div class="magical-borders fetch-content-card">
           <div class="magical-borders-inner">
             <div class="card-inner">
               <h2>Fetch API</h2>
@@ -57,81 +57,101 @@
                 communicate between your site and theirs to get data and use it
                 on a webpage.
               </p>
+              <h2>Finding an Endpoint</h2>
+              <p>
+                The fetch API requires an endpoint to make a request. There are
+                many public APIs that we can look through. Most public APIs will
+                have extensive documentation about their use. Be sure to read
+                and understand it before you choose your endpoint URL, as you
+                may be able to specify perameters for te data you recieve.
+              </p>
+              <p>
+                Once you've read the documentation, you can try entering
+                endpoints URLs into your browser and see what kind of data you
+                get as a response. The data might be hard to parse, but many
+                chrome extensions, like JSON Formatter, will make it easier for
+                you. Choose the endpoint URL that works best for what you want.
+              </p>
               <h2>Async - Await</h2>
               <p>
-                using async functions is essential for the use of the fetch API
+                Using async functions is essential for the use of the fetch API.
+                This allows us to wait for a resonse from the public API before
+                we move on to the next part of our code. Without this, you will
+                receive many errors about the response being undefined.
               </p>
               <p>
-                This function and watchPosition take in two callback arguments
-                (success and error) as well as an optional options object.
-                Options are essentially settings for the API while the functions
-                are the core functionality.
+                To create an Async function, just add the keyword 'async' at the
+                beginning of the function declaration line. After that, you can
+                use the 'await' keyword to specify the parts of the code that
+                need to be paused for.
               </p>
               <h3>Example Usage:</h3>
               <code class="example flex col justify-center br-4">
-                <span
-                  >let response = await fetch(url);</span
-                >
+                <span>async function getResponse &#123;</span>
+                <span class="indent">let response = await fetch(url);</span>
+                <span>&#125;</span>
               </code>
-              <h2>watchPosition() / clearWatch()</h2>
+              <h2>Try-Catch Block</h2>
               <p>
-                The watchPosition() function allows you to track the user's
-                position over time. It continuously provides updated position
-                data, perfect for apps that need real-time location tracking.
-                It’s useful for navigation, fitness apps, or anything that
-                requires constant location updates.
+                Try-catch blocks are important in any code where you are relying
+                on an external server for a response. There are many cases where
+                the response will not be what you need, and you should be
+                prepared for that eventuality.
               </p>
               <p>
-                Once you're done tracking the user’s position, clearWatch() can
-                stop the position updates from watchPosition(). You pass the
-                watch ID to clearWatch() to stop receiving location updates,
-                helping manage resources and prevent unnecessary data
-                collection.
+                The try-catch block allows you to run the code within the try
+                section, then, if an error is thrown, it will catch the error,
+                and run the code in the catch section. The actual code for this
+                is quite simple, as we can see bellow, but we must also check
+                the response, and throw an error if it is not what we want.
               </p>
               <h3>Example Usage:</h3>
               <code class="example flex col justify-center br-4">
-                <span
-                  >let id = navigator.geolocation.watchPosition(success, error,
-                  options);</span
-                >
-                <span>function success(position) {</span>
-                <span class="indent">console.log(position);</span>
-                <span class="indent"
-                  >navigator.geolocation.clearWatch(id);</span
-                >
-                <span>}</span>
+                <span>async function getResponse &#123;</span>
+                <span class="indent">try &#123;</span>
+                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
+                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
+                <span class="indent"><span class="indent"><span class="indent"
+                  >throw new Error('response was not ok');</span
+                ></span></span>
+                <span class="indent"><span class="indent">&#125;</span></span>
+                <span class="indent">&#125; catch (error) &#123;</span>
+                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent">&#125;</span>
+                <span>&#125;</span>
               </code>
-              <h2>Options</h2>
+              <h2>Using the data</h2>
               <p>
-                The Geolocation API allows you to pass an optional options
-                object when using methods like getCurrentPosition() and
-                watchPosition(). This object helps you customize how the
-                geolocation request behaves. You can set the following options:
-                enableHighAccuracy, timeout, and maximumAge.
-              </p>
-              <p>
-                enableHighAccuracy: When set to true, the API gives preference
-                to more precise methods such as GPS, Wi-Fi, and Bluetooth to
-                determine your location. If set to false, it prioritizes faster,
-                less accurate methods like IP address geolocation or cell tower
-                triangulation. timeout: Specifies the maximum time (in
-                milliseconds) to wait for the location before an error is
-                triggered. maximumAge: Specifies the maximum age (in
-                milliseconds) of a cached location that is acceptable.
+                Now that we have the response that we want, we can use the
+                .json() function to format the data into something we can more
+                easily use. Be sure to use the 'await' keyword again here. Once
+                that is saved into a new variable, we can use that variable to
+                access the data easily as a json object.
               </p>
               <h3>Example Usage:</h3>
-              <code class="example flex col br-4 justify-center">
-                <span>// Forces finding of new and most accurate position</span>
-                <span>const options = {</span>
-                <span class="indent">enableHighAccuracy: true,</span>
-                <span class="indent">timeout: Infinity,</span>
-                <span class="indent">maximumAge: 0,</span>
-                <span>}</span>
-                <span
-                  >navigator.geolocation.getCurrentPosition(success, error,
-                  options);</span
-                >
+              <code class="example flex col justify-center br-4">
+                <span>async function getResponse &#123;</span>
+                <span class="indent">try &#123;</span>
+                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
+                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
+                <span class="indent"><span class="indent"><span class="indent"
+                  >throw new Error('response was not ok');</span
+                ></span></span>
+                <span class="indent"><span class="indent">&#125;</span></span>
+                <span class="indent"><span class="indent">let data = await response.json();</span></span>
+                <span class="indent"><span class="indent">console.log(data)</span></span>
+                <span class="indent">&#125; catch (error) &#123;</span>
+                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent">&#125;</span>
+                <span>&#125;</span>
               </code>
+              <h2>Artshow Example</h2>
+              <p>
+                Bellow is an example of what you can do with the fetch API. This
+                artboard is connected to the Harvard Art Museum and dynamically
+                populates with items from it's API. Even the search option makes
+                new fetch calls when you enter a value!
+              </p>
             </div>
           </div>
         </div>
