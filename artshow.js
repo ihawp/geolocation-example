@@ -47,7 +47,7 @@ async function getData(search) {
           desc.classList.add('item-description');
 
           let title = document.createElement('h3');
-          title.innerHTML = `${artwork.title}`;
+          title.innerHTML = `${artwork.title.replace(/[\[\]]/g, "")}`;
           desc.appendChild(title);
 
           let artist = document.createElement('p');
