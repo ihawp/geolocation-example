@@ -286,7 +286,8 @@ body ul {
   width: 100%;
   height: 3875px;
 }
-.content-card .card-inner {
+
+.card-inner {
   position: relative;
   display: flex;
   flex-direction: column;
