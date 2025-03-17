@@ -57,7 +57,7 @@ async function getData(search) {
           desc.appendChild(artist);
 
           let classification = document.createElement('p');
-          classification.innerHTML = `Classification: ${artwork.classigication}`;
+          classification.innerHTML = `Classification: ${artwork.classification}`;
           desc.appendChild(classification);
 
           let technique = document.createElement('p');
