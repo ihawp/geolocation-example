@@ -34,12 +34,13 @@
     <header class="flex items-center col justify-center text-center">
         <h1>Geolocation API Example - Running App</h1>
         <p>Go for a run!</p>
-        <div>
-            <span>Distance Traveled:</span>
-            <span id="distance">0 meters</span>
-        </div>
     </header>
     <section class="flex row wrap magical-borders-container gap-1">
+        <div class="magical-borders" id="alert">
+            <div class="magical-borders-inner">
+                <span class="alert-container" id="distance">Distance Traveled: 0 meters</span>
+            </div>
+        </div>
         <div id="map"></div>
         <button id="start">start</button>
         <button id="stop">stop</button>
