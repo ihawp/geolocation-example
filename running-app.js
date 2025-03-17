@@ -117,4 +117,5 @@ function stop() {
 
 function error(error) {
     console.error(`(${error.code}): ${error.message}`); // ERROR
+    distance.innerText = 'Please enable location services for the app to work.'
 }

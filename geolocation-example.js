@@ -111,6 +111,7 @@ const success = (pos) => {
 // Used as error callback for getCurrentPosition() and watchPosition()
 function error(error) {
     console.error(`(${error.code}): ${error.message}`); // ERROR
+    alert.firstElementChild.firstElementChild.innerText = 'Please enable location services for the app to work.'
 }
 
 // Start Script
