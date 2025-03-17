@@ -256,6 +256,10 @@ body ul {
   flex-wrap: wrap;
 }
 
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
 .no-wrap {
   flex-wrap: nowrap;
 }
@@ -409,6 +413,7 @@ header {
 }
 
 footer {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -456,6 +461,9 @@ footer {
   }
   main, header, footer {
     width: 50rem;
+  }
+  footer {
+    margin-top: 0;
   }
 }
 

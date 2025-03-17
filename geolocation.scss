@@ -151,6 +151,10 @@ body {
   flex-wrap: wrap;
 }
 
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
 .no-wrap {
   flex-wrap: nowrap;
 }
@@ -307,6 +311,7 @@ header {
   padding: 2rem 0 1rem 0;
 }
 footer {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 .none-sm {
@@ -352,6 +357,9 @@ footer {
   }
   main, header, footer {
     width: 50rem;
+  }
+  footer {
+    margin-top: 0;
   }
 }
 
