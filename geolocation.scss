@@ -138,7 +138,7 @@ body {
   flex-direction: row;
 }
 
-.col {
+.col, .col-sm {
   flex-direction: column;
 }
 
@@ -206,6 +206,12 @@ body {
 
 // --------------------------------------------------------------------------------------------------------
 // custom class/id
+
+#mobile-nav {
+  width: 100%;
+  padding: 2rem 0 0 0;
+  font-weight: 800;
+}
 
 // ----------- map -----------
 #map, .map {
@@ -299,12 +305,29 @@ header {
 footer {
   margin-bottom: 1rem;
 }
-
+.none-sm {
+  display: flex;
+}
 .display-sm {
   display: none;
+  &.active {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 50em) {
+  #mobile-nav {
+    width: unset;
+    padding: unset;
+    font-weight: 800;
+  }
+  .col-sm {
+    flex-direction: row;
+  }
+  .none-sm {
+    display: none;
+  }
   #thanks {
     height: 22.5px;
   }

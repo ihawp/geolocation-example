@@ -2,14 +2,18 @@
 const l = document.getElementById("mobile-nav");
 let navigation = document.getElementById("navigation");
 
-let stored = l.innerHTML;
-
-l.addEventListener('click', function() {
-    if (navigation.classList.contains('display-sm')) {
-        l.innerHTML = '&#x2718;';
-        return navigation.classList.remove('display-sm');
+navigation.addEventListener('click', function(event) {
+    if (l.classList.contains('active')) {
+        event.target.innerText = '|||';
+        return l.classList.remove('active');
     }
-    l.innerHTML = stored;
-    navigation.classList.add('display-sm');
-    stored = l.innerHTML;
+    event.target.innerText = 'X';
+    l.classList.add('active');
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 800) {
+        l.classList.remove('active');
+        navigation.innerText = '|||'
+    }
 });
