@@ -41,13 +41,11 @@ body {
   }
   a {
     text-decoration: none;
-  }
-
-  footer {
-    a:hover {
-        text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
     }
   }
+
   h1, h2, h3, h4, h5, h6 {}
   h1 {
     line-height: 28px;
@@ -71,9 +69,29 @@ body {
   h4 {}
   h5 {}
   h6 {}
-  p, a {
+  p {
     font-weight: 300;
-    opacity: .8;
+  }
+
+  button {
+    padding: .5rem 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    &#start {
+      background: green;
+      &:hover {
+        background: #8ce800;
+      }
+    }
+    &#stop {
+      background: red;
+      &:hover {
+        background: orangered;
+      }
+    }
   }
 
 
@@ -197,7 +215,7 @@ body {
   height: 55px;
 
   &:before {
-    content: "Try opening it on your mobile device to reach the target location!"
+    content: "Try opening it on your mobile to reach the target location!"
   }
 
   &:hover {

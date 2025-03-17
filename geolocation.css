@@ -112,7 +112,7 @@ body, body a {
 body a {
   text-decoration: none;
 }
-body footer a:hover {
+body a:hover {
   text-decoration: underline;
 }
 body h1 {
@@ -134,9 +134,28 @@ body h3 {
   margin-bottom: 1rem;
   font-weight: 700;
 }
-body p, body a {
+body p {
   font-weight: 300;
-  opacity: 0.8;
+}
+body button {
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+body button#start {
+  background: green;
+}
+body button#start:hover {
+  background: #8ce800;
+}
+body button#stop {
+  background: red;
+}
+body button#stop:hover {
+  background: orangered;
 }
 body ul {
   margin: 0;
@@ -249,7 +268,7 @@ body ul {
   height: 55px;
 }
 #thanks:before {
-  content: "Try opening it on your mobile device to reach the target location!";
+  content: "Try opening it on your mobile to reach the target location!";
 }
 #thanks:hover:before {
   content: "...or bring your laptop outside?";
