@@ -74,12 +74,8 @@ function success(pos) {
         const φ2 = pos.coords.latitude * Math.PI/180;
         const Δφ = (pos.coords.latitude-userLocation.latitude) * Math.PI/180;
         const Δλ = (pos.coords.longitude-userLocation.longitude) * Math.PI/180;
-
-        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-            Math.cos(φ1) * Math.cos(φ2) *
-            Math.sin(Δλ/2) * Math.sin(Δλ/2);
+        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ/2) * Math.sin(Δλ/2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
         const d = R * c
 
         distanceCount += d;
