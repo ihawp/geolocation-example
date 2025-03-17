@@ -31,16 +31,10 @@
     </header>
     <main>
         <header class="flex items-center col justify-center text-center">
-            <h1>Geolocation API Example</h1>
+            <h1>JavaScript API Examples</h1>
             <p id="thanks"></p>
         </header>
         <section class="flex row wrap magical-borders-container gap-1">
-            <div id="map"></div>
-            <div class="magical-borders" id="alert">
-                <div class="magical-borders-inner">
-                    <span class="alert-container">You have NOT reached the target location!</span>
-                </div>
-            </div>
             <div class="magical-borders content-card">
                 <div class="magical-borders-inner">
                     <div class="card-inner">
@@ -57,58 +51,6 @@
                             or even determine the user's location using methods like GPS or IP address.
                             This helps to make apps more dynamic and contextually aware of the user's environment.
                         </p>
-                        <h2>getCurrentPosition()</h2>
-                        <p>
-                            The getCurrentPosition() function is the most common way to get a user's current position.
-                            It returns the latitude and longitude, as well as other details such as accuracy and altitude.
-                            It requires user consent to access location data.
-                        </p>
-                        <p>
-                            This function and watchPosition take in two callback arguments (success and error) as well as an optional options object.
-                            Options are essentially settings for the API while the functions are the core functionality.
-                        </p>
-                        <h3>Example Usage:</h3>
-                        <code class="example flex col justify-center br-4">
-                            <span>navigator.geolocation.getCurrentPosition(success, error, options);</span>
-                        </code>
-                        <h2>watchPosition() / clearWatch()</h2>
-                        <p>
-                            The watchPosition() function allows you to track the user's position over time.
-                            It continuously provides updated position data, perfect for apps that need real-time location tracking.
-                            It’s useful for navigation, fitness apps, or anything that requires constant location updates.
-                        </p>
-                        <p>
-                            Once you're done tracking the user’s position, clearWatch() can stop the position updates from watchPosition().
-                            You pass the watch ID to clearWatch() to stop receiving location updates, helping manage resources and prevent unnecessary data collection.
-                        </p>
-                        <h3>Example Usage:</h3>
-                        <code class="example flex col justify-center br-4">
-                            <span>let id = navigator.geolocation.watchPosition(success, error, options);</span>
-                            <span>function success(position) {</span>
-                            <span class="indent">console.log(position);</span>
-                            <span class="indent">navigator.geolocation.clearWatch(id);</span>
-                            <span>}</span>
-                        </code>
-                        <h2>Options</h2>
-                        <p>
-                            The Geolocation API allows you to pass an optional options object when using methods like getCurrentPosition() and watchPosition(). This object helps you customize how the geolocation request behaves.
-                            You can set the following options: enableHighAccuracy, timeout, and maximumAge.
-                        </p>
-                        <p>
-                            enableHighAccuracy: When set to true, the API gives preference to more precise methods such as GPS, Wi-Fi, and Bluetooth to determine your location. If set to false, it prioritizes faster, less accurate methods like IP address geolocation or cell tower triangulation.
-                            timeout: Specifies the maximum time (in milliseconds) to wait for the location before an error is triggered.
-                            maximumAge: Specifies the maximum age (in milliseconds) of a cached location that is acceptable.
-                        </p>
-                        <h3>Example Usage:</h3>
-                        <code class="example flex col br-4 justify-center">
-                            <span>// Forces finding of new and most accurate position</span>
-                            <span>const options = {</span>
-                            <span class="indent">enableHighAccuracy: true,</span>
-                            <span class="indent">timeout: Infinity,</span>
-                            <span class="indent">maximumAge: 0,</span>
-                            <span>}</span>
-                            <span>navigator.geolocation.getCurrentPosition(success, error, options);</span>
-                        </code>
                     </div>
                 </div>
             </div>
@@ -128,7 +70,6 @@
             </li>
         </ul>
     </footer>
-    <script src="geolocation-example.js"></script>
     <script src="magical-borders.js"></script>
     <script src="navigation.js"></script>
 </body>
