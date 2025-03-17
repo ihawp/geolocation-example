@@ -37,6 +37,9 @@
       </nav>
     </header>
     <main>
+      <header class="flex items-center col justify-center text-center">
+        <h1>Fetch API Example</h1>
+      </header>
       <section class="flex row wrap magical-borders-container gap-1">
         <div class="magical-borders fetch-content-card">
           <div class="magical-borders-inner">
@@ -109,14 +112,26 @@
               <code class="example flex col justify-center br-4">
                 <span>async function getResponse &#123;</span>
                 <span class="indent">try &#123;</span>
-                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
-                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
-                <span class="indent"><span class="indent"><span class="indent"
-                  >throw new Error('response was not ok');</span
-                ></span></span>
+                <span class="indent"
+                  ><span class="indent"
+                    >let response = await fetch(url);</span
+                  ></span
+                >
+                <span class="indent"
+                  ><span class="indent">if (!response.ok) &#123;</span></span
+                >
+                <span class="indent"
+                  ><span class="indent"
+                    ><span class="indent"
+                      >throw new Error('response was not ok');</span
+                    ></span
+                  ></span
+                >
                 <span class="indent"><span class="indent">&#125;</span></span>
                 <span class="indent">&#125; catch (error) &#123;</span>
-                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent"
+                  ><span class="indent">console.error(error);</span></span
+                >
                 <span class="indent">&#125;</span>
                 <span>&#125;</span>
               </code>
@@ -132,16 +147,34 @@
               <code class="example flex col justify-center br-4">
                 <span>async function getResponse &#123;</span>
                 <span class="indent">try &#123;</span>
-                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
-                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
-                <span class="indent"><span class="indent"><span class="indent"
-                  >throw new Error('response was not ok');</span
-                ></span></span>
+                <span class="indent"
+                  ><span class="indent"
+                    >let response = await fetch(url);</span
+                  ></span
+                >
+                <span class="indent"
+                  ><span class="indent">if (!response.ok) &#123;</span></span
+                >
+                <span class="indent"
+                  ><span class="indent"
+                    ><span class="indent"
+                      >throw new Error('response was not ok');</span
+                    ></span
+                  ></span
+                >
                 <span class="indent"><span class="indent">&#125;</span></span>
-                <span class="indent"><span class="indent">let data = await response.json();</span></span>
-                <span class="indent"><span class="indent">console.log(data)</span></span>
+                <span class="indent"
+                  ><span class="indent"
+                    >let data = await response.json();</span
+                  ></span
+                >
+                <span class="indent"
+                  ><span class="indent">console.log(data)</span></span
+                >
                 <span class="indent">&#125; catch (error) &#123;</span>
-                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent"
+                  ><span class="indent">console.error(error);</span></span
+                >
                 <span class="indent">&#125;</span>
                 <span>&#125;</span>
               </code>
@@ -178,6 +211,27 @@
         <h2>Loading...</h2>
       </section>
     </main>
+    <footer class="flex wrap justify-between grow-1 items-center">
+      <p>&copy; isaacrudy.com 2025.</p>
+      <ul class="flex flex-wrap items-center gap-1">
+        <li>
+          <a
+            href="https://harvardartmuseums.org/"
+            title="Harvard Art Museum"
+            aria-label="Go to harvardartmuseums.org"
+            >Harvard Art Museum</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/public-apis/public-apis"
+            title="Public API resources"
+            aria-label="Find some public APIs"
+            >Public APIs</a
+          >
+        </li>
+      </ul>
+    </footer>
     <script src="artshow.js"></script>
     <script src="navigation.js"></script>
     <script src="magical-borders.js"></script>
