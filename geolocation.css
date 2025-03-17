@@ -287,6 +287,11 @@ body ul {
   height: 3875px;
 }
 
+.content-card-2 {
+  width: 100%;
+  height: 1600px;
+}
+
 .card-inner {
   position: relative;
   display: flex;
