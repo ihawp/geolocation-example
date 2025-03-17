@@ -276,7 +276,7 @@ body ul {
   height: 55px;
 }
 #thanks:before {
-  content: "Try opening it on your mobile device to reach the target location!";
+  content: "Try opening this site on your mobile device to reach the target location!";
 }
 #thanks:hover:before {
   content: "...or bring your laptop outside?";
