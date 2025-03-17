@@ -144,18 +144,16 @@ body button {
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  color: #222;
+}
+body button:hover {
+  opacity: 0.9;
 }
 body button#start {
-  background: green;
-}
-body button#start:hover {
-  background: #8ce800;
+  background: #00bf00;
 }
 body button#stop {
   background: red;
-}
-body button#stop:hover {
-  background: orangered;
 }
 body ul {
   margin: 0;
