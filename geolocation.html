@@ -12,8 +12,24 @@
     <script src="leaflet/leaflet.js"></script>
 </head>
 <body class="flex col items-center">
-<button class="screen-reader-text">Skip to Content</button>
-<main>
+<a href="#content" class="screen-reader-text">Skip to Content</a>
+<header class="flex-col-sm wrap justify-between">
+    <button class="none-sm" id="navigation">|||</button>
+    <nav aria-label="Main Navigation" class="flex justify-end">
+        <ul id="mobile-nav" class="flex gap-2 display-sm">
+            <li>
+                <a href="index.html" title="Homepage of ihawp.github.io/geolocation-example/">Home</a>
+            </li>
+            <li>
+                <a href="fetch.html" title="Fetch API Example">Fetch</a>
+            </li>
+            <li>
+                <a href="running.html" title="Geolocation API Running App Example">Running Example</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
     <header class="flex items-center col justify-center text-center">
         <h1>Geolocation API Example</h1>
         <p id="thanks"></p>
@@ -114,5 +130,6 @@
 </footer>
 <script src="geolocation-example.js"></script>
 <script src="magical-borders.js"></script>
+<script src="navigation.js"></script>
 </body>
 </html>

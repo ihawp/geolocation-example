@@ -79,7 +79,7 @@ function success(pos) {
         const d = R * c
 
         distanceCount += d;
-        distance.innerText = `${distanceCount} meters`;
+        distance.innerText = `Distance Traveled: ${distanceCount.toFixed(2)} meters`;
 
         // Set the updated user position
         route.push([pos.coords.latitude, pos.coords.longitude]);
@@ -117,4 +117,5 @@ function stop() {
 
 function error(error) {
     console.error(`(${error.code}): ${error.message}`); // ERROR
+    distance.innerText = 'Please enable location services for the app to work.'
 }
