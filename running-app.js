@@ -68,6 +68,7 @@ function success(pos) {
 
 
         // Haversine formula (Great-circle distance)
+        // https://www.movable-type.co.uk/scripts/latlong.html
         const R = 6371e3; // metres
         const φ1 = userLocation.latitude * Math.PI/180; // φ, λ in radians
         const φ2 = pos.coords.latitude * Math.PI/180;
