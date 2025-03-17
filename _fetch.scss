@@ -1,0 +1,64 @@
+//   Artboard Display
+
+.fetch-content-card {
+  width: 100%;
+  height: 4800px;
+
+  @media (min-width: 50rem) {
+    height: 3000px;
+  }
+}
+
+.artworks {
+
+    .item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 1rem;
+  
+      .item-image {
+        width: 100%;
+        height: auto;
+        padding-bottom: 1rem;
+      }
+    }
+  
+    @media (min-width: 50em) {
+      .item {
+        border-bottom: 2px solid white;
+  
+        .item-image {
+          width: 20%;
+        }
+  
+        .item-description {
+          width: 50%;
+        }
+      }
+      .artworks h2 {
+        padding-left: 4rem;
+      }
+    }
+}
+  
+  /* ---------------------------------- Search Bar */
+  
+  .search form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: none;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .search form input {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    border: 1px solid #2154a4;
+  }
+  

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A page using API to grab information from harvard's art api and displaying them."
+    />
+    <title>Artshow</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="normalize-fwd.css" />
+    <link rel="stylesheet" href="geolocation.css" />
+  </head>
+  <body class="flex col items-center">
+    <header class="flex-col-sm wrap justify-between">
+      <button class="none-sm" id="navigation">|||</button>
+      <nav aria-label="Main Navigation" class="flex justify-end">
+        <ul id="mobile-nav" class="flex gap-2 display-sm">
+          <li>
+            <a
+              href="index.html"
+              title="Homepage of ihawp.github.io/geolocation-example/"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="fetch.html" title="Fetch API Example">Fetch</a>
+          </li>
+          <li>
+            <a href="geolocation.html" title="Geolocation API Example"
+              >Geolocation</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="flex row wrap magical-borders-container gap-1">
+        <div class="magical-borders fetch-content-card">
+          <div class="magical-borders-inner">
+            <div class="card-inner">
+              <h2>Fetch API</h2>
+              <h3>What is the Fetch API?</h3>
+              <p>
+                The fetch API helps you add content to your webpage,
+                communicating with another server to get data that you can put
+                into your page! It is very helpful for getting realtime data
+                from an API, and there are many public APIs out there for you to
+                use.
+              </p>
+              <h3>What can it do?</h3>
+              <p>
+                The fetch API allows you to ask a hosted server for data. If the
+                server has an API set up to respond to such requests, you can
+                communicate between your site and theirs to get data and use it
+                on a webpage.
+              </p>
+              <h2>Finding an Endpoint</h2>
+              <p>
+                The fetch API requires an endpoint to make a request. There are
+                many public APIs that we can look through. Most public APIs will
+                have extensive documentation about their use. Be sure to read
+                and understand it before you choose your endpoint URL, as you
+                may be able to specify perameters for te data you recieve.
+              </p>
+              <p>
+                Once you've read the documentation, you can try entering
+                endpoints URLs into your browser and see what kind of data you
+                get as a response. The data might be hard to parse, but many
+                chrome extensions, like JSON Formatter, will make it easier for
+                you. Choose the endpoint URL that works best for what you want.
+              </p>
+              <h2>Async - Await</h2>
+              <p>
+                Using async functions is essential for the use of the fetch API.
+                This allows us to wait for a resonse from the public API before
+                we move on to the next part of our code. Without this, you will
+                receive many errors about the response being undefined.
+              </p>
+              <p>
+                To create an Async function, just add the keyword 'async' at the
+                beginning of the function declaration line. After that, you can
+                use the 'await' keyword to specify the parts of the code that
+                need to be paused for.
+              </p>
+              <h3>Example Usage:</h3>
+              <code class="example flex col justify-center br-4">
+                <span>async function getResponse &#123;</span>
+                <span class="indent">let response = await fetch(url);</span>
+                <span>&#125;</span>
+              </code>
+              <h2>Try-Catch Block</h2>
+              <p>
+                Try-catch blocks are important in any code where you are relying
+                on an external server for a response. There are many cases where
+                the response will not be what you need, and you should be
+                prepared for that eventuality.
+              </p>
+              <p>
+                The try-catch block allows you to run the code within the try
+                section, then, if an error is thrown, it will catch the error,
+                and run the code in the catch section. The actual code for this
+                is quite simple, as we can see bellow, but we must also check
+                the response, and throw an error if it is not what we want.
+              </p>
+              <h3>Example Usage:</h3>
+              <code class="example flex col justify-center br-4">
+                <span>async function getResponse &#123;</span>
+                <span class="indent">try &#123;</span>
+                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
+                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
+                <span class="indent"><span class="indent"><span class="indent"
+                  >throw new Error('response was not ok');</span
+                ></span></span>
+                <span class="indent"><span class="indent">&#125;</span></span>
+                <span class="indent">&#125; catch (error) &#123;</span>
+                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent">&#125;</span>
+                <span>&#125;</span>
+              </code>
+              <h2>Using the data</h2>
+              <p>
+                Now that we have the response that we want, we can use the
+                .json() function to format the data into something we can more
+                easily use. Be sure to use the 'await' keyword again here. Once
+                that is saved into a new variable, we can use that variable to
+                access the data easily as a json object.
+              </p>
+              <h3>Example Usage:</h3>
+              <code class="example flex col justify-center br-4">
+                <span>async function getResponse &#123;</span>
+                <span class="indent">try &#123;</span>
+                <span class="indent"><span class="indent">let response = await fetch(url);</span></span>
+                <span class="indent"><span class="indent">if (!response.ok) &#123;</span></span>
+                <span class="indent"><span class="indent"><span class="indent"
+                  >throw new Error('response was not ok');</span
+                ></span></span>
+                <span class="indent"><span class="indent">&#125;</span></span>
+                <span class="indent"><span class="indent">let data = await response.json();</span></span>
+                <span class="indent"><span class="indent">console.log(data)</span></span>
+                <span class="indent">&#125; catch (error) &#123;</span>
+                <span class="indent"><span class="indent">console.error(error);</span></span>
+                <span class="indent">&#125;</span>
+                <span>&#125;</span>
+              </code>
+              <h2>Artshow Example</h2>
+              <p>
+                Bellow is an example of what you can do with the fetch API. This
+                artboard is connected to the Harvard Art Museum and dynamically
+                populates with items from it's API. Even the search option makes
+                new fetch calls when you enter a value!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>Artshow</h2>
+      <section class="search">
+        <form action="#">
+          <label for="search"><h3>Search:</h3></label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="try searching here..."
+          />
+        </form>
+      </section>
+
+      <section class="artworks" id="artworks">
+        <h3>Harvard Art Museum</h3>
+      </section>
+
+      <section id="loading">
+        <h2>Loading...</h2>
+      </section>
+    </main>
+    <script src="artshow.js"></script>
+    <script src="navigation.js"></script>
+    <script src="magical-borders.js"></script>
+  </body>
+</html>
