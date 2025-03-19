@@ -100,14 +100,23 @@ function success(pos) {
 }
 
 
-document.getElementById('start').addEventListener('click', start);
-document.getElementById('stop').addEventListener('click', stop);
+const startt = document.getElementById('start');
+const stopp = document.getElementById('stop');
+startt.addEventListener('click', start);
+stopp.addEventListener('click', stop);
+stopp.setAttribute('disabled', 'disabled');
 
 function start() {
     navigator.geolocation.getCurrentPosition(initialSuccess, error, options);
+    startt.setAttribute('disabled', 'disabled');
+    stopp.removeAttribute('disabled');
 }
 
 function stop() {
+
+    stopp.setAttribute('disabled', 'disabled');
+    startt.removeAttribute('disabled');
+
     // Use the saved id of the watchPosition() call in the clearWatch() function to stop watching the user's location.
     navigator.geolocation.clearWatch(id);
 
